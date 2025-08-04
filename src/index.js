@@ -8,6 +8,8 @@ root.render(
   <h1>hello to All the world</h1>
 );
 
+// test note for git push
+// this note is too!
 let time = ()=>{
   const elem= (
     <div>
