@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -37,6 +37,7 @@ setInterval(time,1000)
 
 // new timer with class Type component
 
+/*
 
 class Timer extends React.Component{
   render(){
@@ -73,3 +74,58 @@ let elem = ReactDOM.createRoot(document.getElementById("root"))
 setInterval(()=>{
   elem.render(<Atall/>)
 },1000)
+
+*/
+
+
+// Use state and css to this timer components....!!!!
+
+import React from "react";
+import ReactDom from "react-dom/client";
+import "./style.css";
+
+
+class Timer extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      time : new Date().toLocaleTimeString()
+    }
+  }
+  render(){
+    setInterval(()=>{
+      this.setState({
+      time : new Date().toLocaleTimeString()
+    })
+    },1000)
+
+    return(
+      <h2 className="timer">
+        it is: {this.state.time}
+      </h2>
+    )
+  }
+  
+}
+
+class Hello extends React.Component{
+  render(){
+    return(
+      <h1>Hello My Friends</h1>
+    )
+  }
+}
+
+
+class Atall extends React.Component{
+  render(){
+    return(
+      <div className="main">
+        <Hello/>
+        <Timer/>
+      </div>
+    )
+  }
+}
+
+ReactDom.createRoot(document.getElementById("root")).render(<Atall/>)
