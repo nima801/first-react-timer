@@ -80,49 +80,32 @@ setInterval(()=>{
 
 // Use state and css to this timer components....!!!!
 
+
+
+
 import React from "react";
 import ReactDom from "react-dom/client";
 import "./style.css";
-
-
-class Timer extends React.Component{
-  constructor(){
-    super();
-    this.state={
-      time : new Date().toLocaleTimeString()
-    }
-  }
-  render(){
-    setInterval(()=>{
-      this.setState({
-      time : new Date().toLocaleTimeString()
-    })
-    },1000)
-
-    return(
-      <h2 className="timer">
-        it is: {this.state.time}
-      </h2>
-    )
-  }
-  
-}
-
-class Hello extends React.Component{
-  render(){
-    return(
-      <h1>Hello My Friends</h1>
-    )
-  }
-}
-
+import Hello from "./Hello";
+import Timer from "./Timer";
 
 class Atall extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      title : "hello again for you"
+    }
+  }
+  changeWhenClick = ()=>{
+    this.setState({
+      title : "Welcome Here...!"
+    })
+  }
   render(){
     return(
       <div className="main">
-        <Hello/>
-        <Timer/>
+        <Hello title={this.state.title}/>
+        <Timer changeWhenClick ={this.changeWhenClick}/>
       </div>
     )
   }
